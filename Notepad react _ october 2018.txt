@@ -1,0 +1,160 @@
+Either use Arrow functions or if using function then bind them.
+rcc - generate component, rccp - generate comp with proptypes in vscode.
+event object is always last param in any function.
+ex: function(par1, par2, e)
+{}
+Que 1 : how react works
+{ReactDom.render renders React component as virtual dom. Virtual dom then compared with browser dom and find delta. 
+only delta is rendered which gives actual html. 
+if any event gets fired the the logic in component gets fired and state modified and this process keeps going.
+Every }
+
+Que 2 :  What is component
+{its combination of UI, state an behaviuours}
+
+Qu3: Props
+{To pass data from outside to the component.Props are ready only and cant be modified at all.
+if constructor inherited from other class then you should always call super();
+props will not be null if not initialized. props in a constructor will be available if u accept them in params. and call super with props.
+outside constructor props are available everywhere. always pass props as curly braces{} 
+ex <component name={"chetan"}, age={10}>.
+
+que4 : synthetic event 
+Ans : react wrapped up events in a class and pass it so if browser changes it do not changes event properties.
+
+function(par1, par2, e)
+{}
+
+for react e is class and for javascript e is mouseevent when we click ona button to call it
+
+Props change will also make sure to call the render function of the component.
+
+}
+synthetic objects of react are pooled objects means if you want to save event for child events then you need to say e.persists()
+ex
+function(par1, par2, e)
+{
+	e.persists();
+setinterval(methoda(){console.log(e)}, 1000)
+
+}
+
+if you will not say persists it will give null value in react but not in js . javascript will use lexical scoping and show value of e of function.
+
+Que5: state
+{states generally initialized in constructor. state is undefined if not initialized. states are defined insde component.
+render of component will get called when state change by setstate method. just changing state directly dont call render method.
+setstate creates new memory location to follow immutable rule. setstate is asynchronus method. 
+so to do any work after value change then pass a callback method to setstate rather than calling from next line itself.
+whenever state changes it calls render and it do dom modification as per virtual dom concept.
+}
+
+Que6 : bubbling and capturing(tunneling)
+ans : all events are bubbled and with capture keyword they are tunneled or captured
+Ex : onClickCapture.
+
+Note : In js always this keyword says about called.
+Ex : class a {
+	methoda{console.log(this);}	
+}
+var b = new a();
+b.methoda();  /*output is class*/
+setTimeout(b.methoda, 1000); /*output is windows*/
+settimeout(b.methoda.bind(b),1000);/*output is class*/
+
+Que 7 : Default Props;
+Ans  :  
+style 1 : inside component
+static get defaultProps(){
+	return {
+	prop1 : value, 
+	prop2 : value
+}
+}
+
+style 2: outside component
+componentname.defaultProps = {
+	prop1 : value, 
+	prop2 : value
+}
+if parent not passing property then the default values of property will be initialized. if parent will pass then parent will value will be taken
+
+
+Que:9 : controlled and uncontrolled component
+asn:
+
+
+Que10: Array Destructuring
+Ans: var a = [1,2,3]
+var b = [...a,4]
+b is now [1,2,3,4]
+
+Que11: presentation vs container component
+ans: presentation comp have only render and no states. it will be just a function and not class. presentation components do not have any props initialized.
+container is just opposite of presentation COMP.
+in case of redux store component which directly talk to store is container component . presentation component will always take values as props from parent component only.
+
+que12: obj destructuring
+ans: 
+var obj = {i:1,j:2:k:3}
+var {i, k}  = obj;
+
+1) VSCode Installations
+AutoFile Name
+vscode-icons
+reactjs code snippets 	
+2) ?File->preferences->file icon theme->VsCode Icons
+
+3) use Kangax to find new features of ACMA
+4) npm init -y
+5) private:true in packkage.json means i am not deploying code in any github server or any source server.
+6) webpack.config.js
+7) config folder 
+webpack.common.js 
+webpack.dev.js.
+webpack.prod.js
+
+8).babelrc folder
+9)index.html
+10) src folder
+main.js
+HelloComponent.jsx
+11)polyfills.js
+12) vendor.js
+13)npm install --save react react-dom
+14) npm install --save-dev  webpack webpack-cli webpack-dev-server webpack-merge
+15) npm install --save-dev babel-core  babel-preset-env babel-preset-react
+16) npm install --save-dev babel-loader html-loader html-webpack-plugin
+17) npm install --save-dev babel-polyfill
+18) npm install --save-dev rimraf
+
+19) various sections of webpack
+	Entry point(which files should consider as entry)
+	extentions (wjhat all extention should be bundled)
+	loaders (how files will be loaded js or html or jsx etx)
+	optimizations(what all optimizations are required like minification etc)	
+	plugin(what should happen after bundling like inject bnundles)
+	output (wehere the output of webpacl will go)
+
+20) to use twitter bootstrap
+npm install --save bootstrap@3 jquery
+npm install --save-dev css-loader style-loader file-loader
+21) in vendor.js
+import 'jquery'
+import 'bootstrap/dist/js/bootstrap'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap-theme.css'
+
+22) to extract css from page 
+npm uninstall style-loader
+npm install --save-dev mini-css-extract-plugin optimize-css-assets-webpack-plugin
+
+23) use google material design with react.
+--------------------redux
+1) npm install --save redux react-redux
+--------------------thunk
+when we want to do double dispatch or reducer function returns a async function and not a plain object then we need thunk
+
+npm install --save redux-thunk
+-------------
+install react dev tool , redux dev tool
