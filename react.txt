@@ -1,0 +1,31 @@
+1) preset enables babel to understand what type of code you are wrinting like babel-preset-env mbneas any version of js, babel-preset-react to understanmd react code .
+2) react extentions for vs code
+	reactjs code snippets by charalampos.
+3) lifecycle hooks
+
+Mountuing - component loading
+	1) constructor 
+	2) unsafe_componmentwillmount (new method static getderivedstatefromprops)
+	3)  render
+	4) compomentdidmount
+updating
+	1) unsafe_componentwillrecieveprops(new method static getderivedstatefromprops)
+	2) shouldocmponentupdate
+	3) unsafe_compoenntwillupdate
+	4) render
+	4) componentdidupdate
+unmounting
+	1) componentwillunmount
+	2) componmentdidcatch
+error :
+
+4) Use react dev tool for browser.
+
+1)Redux
+	a) crteate action types 
+	b) create action creator
+
+
+2) Thunk : if you call function function which again do dispatch dispatch and rather than a object return another function then we need thunk for the same .
+2) read about redux promise and redux observable.
+3) where to keep your token while using redux store. in store or in session 
